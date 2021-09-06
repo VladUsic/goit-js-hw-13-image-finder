@@ -19,7 +19,7 @@ function showImages(event) {
     inputValue = event.currentTarget.elements.query.value;
     number = 1;
 
-    if (inputValue === '') {
+    if (inputValue.trim() === '') {
         refs.loadMore.classList.add('is-hidden');
         return
     }
