@@ -28,41 +28,35 @@ function showImages(event) {
             responseVarification(value)
         })
         .then(refs.loadMore.classList.remove('is-hidden'))
-        .then(event.currentTarget.elements.query.value='')
+        .then(event.currentTarget.elements.query.value = '')
         .catch(error => {
             console.log(error);
         })
 };
 
 function responseVarification(value) {
-    refs.responseContainer.insertAdjacentHTML('beforeend', PhotoCard(value.hits))            
+    refs.responseContainer.insertAdjacentHTML('beforeend', PhotoCard(value.hits))
 }
 
 function scroll() {
-    var scrollHeight = Math.max(
-  document.body.scrollHeight, document.documentElement.scrollHeight,
-  document.body.offsetHeight, document.documentElement.offsetHeight,
-  document.body.clientHeight, document.documentElement.clientHeight
+    let scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
     );
-    window.scrollTo(0, scrollHeight-1018)
-    }
+    window.scrollIntoView(0, scrollHeight - 1018)
+}
 
 function showMore() {
-    number +=1
+    number += 1
     fatch(inputValue, number)
         .then(value => {
             responseVarification(value)
         })
         .then(setTimeout(() => {
             scroll()
-        }, 700
-        ))
+        }, 700))
         .catch(error => {
             console.log(error);
         });
 };
-
-
-
-
-
