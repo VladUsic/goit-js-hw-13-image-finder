@@ -16,7 +16,7 @@ var number = 0;
 function showImages(event) {
     event.preventDefault()
     refs.responseContainer.innerHTML = ''
-    inputValue = event.currentTarget.elements.query.value;
+    inputValue = event.currentTarget.elements.query.value.trim();
     number = 1;
 
     if (inputValue.trim() === '') {
@@ -39,12 +39,10 @@ function responseVarification(value) {
 }
 
 function scroll() {
-    let scrollHeight = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-    );
-    window.scrollIntoView(0, scrollHeight - 1018)
+    window.scrollTo({
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+    });
 }
 
 function showMore() {
